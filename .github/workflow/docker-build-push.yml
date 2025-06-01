@@ -1,0 +1,16 @@
+name: Build and Push Docker Image
+on:
+  push:
+    paths:
+      - Dockerfile
+      - app.py
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aws-actions/amazon-ecr-login@v1
+      - run: |
+          docker build -t myapp .
+          docker tag myapp:latest <ecr_url>
+          docker push <ecr_url>
