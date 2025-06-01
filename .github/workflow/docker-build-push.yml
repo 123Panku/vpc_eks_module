@@ -12,5 +12,5 @@ jobs:
       - uses: aws-actions/amazon-ecr-login@v1
       - run: |
           docker build -t myapp .
-          docker tag myapp:latest <ecr_url>
-          docker push <ecr_url>
+          docker tag myapp:latest 062413611684.dkr.ecr.us-east-1.amazonaws.com/app:latest
+          docker push 062413611684.dkr.ecr.us-east-1.amazonaws.com/app:latest
